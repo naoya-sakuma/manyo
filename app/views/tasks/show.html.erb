@@ -1,1 +1,15 @@
 <h1>show：タスク詳細</h1>
+
+<div>
+<p>
+  <strong>タイトル:</strong>
+  <%= @task.title %>
+</p>
+
+<p>
+  <strong>詳細:</strong>
+  <%= @task.content %>
+</p>
+
+<%= link_to '編集', edit_task_path(@task) %> |
+<%= link_to '戻る', tasks_path %>
