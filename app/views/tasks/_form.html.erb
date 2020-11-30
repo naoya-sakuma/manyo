@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= task.label :title, "タイトル" %>
+    <%= task.label :title, "タスク名" %>
     <%= task.text_field :title %>
   </div>
 
   <div class="field">
-    <%= task.label :content, "詳細" %>
+    <%= task.label :content, "タスク詳細" %>
     <%= task.text_field :content %>
   </div>
 
   <div class="actions">
-    <%= task.submit %>
+    <%= task.submit value='登録する'%>
   </div>
 <% end %>
