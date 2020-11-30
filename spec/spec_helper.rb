@@ -1,5 +1,8 @@
-
 RSpec.configure do |config|
+  config.before(:each, type: :system) do
+    driven_by(:selenium_chrome)
+  end
+  
   config.before(:each) do |example|
     driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400], options: { args: ['no-sandbox'] } if example.metadata[:type] == :system
   end
