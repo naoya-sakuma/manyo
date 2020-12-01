@@ -1,4 +1,15 @@
-> t.string "title", null: false
-> t.text "content"
-> t.datetime "created_at", null: false
-> t.datetime "updated_at", null: false
+User model/users table
+
+| name            | text |      |
+| email_adress    | text |      |
+| password        | text |      |                        
+| password_digest | text |      |
+
+
+Task model/tasks table
+
+| title    | text    |      |
+| content  | text    |      |
+| priority | integer |      |      
+| status   | integer |      |
+| deadline | Date    |      |
