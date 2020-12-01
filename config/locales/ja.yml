@@ -1,15 +1,20 @@
 ja:
   view:
-    index:
-    index_title: タスク一覧
-    index_table_th1: タスク名
-    index_table_th2: タスク詳細
+    task_index: タスク一覧
+    task_name: タスク名
+    task_show: タスク詳細
 
-    edit:
-    edit_title: タスク編集
+    title_edit: タスク編集
+    title_new: 新規作成
+    title_show: タスク詳細
 
-    new:
-    new_title: 新規作成
+    button_create: 登録
+    button_edit: 編集
+    button_index: 一覧
+    button_show: 詳細
+    button_destroy: 削除
 
-    show:
-    show_title: タスク詳細
+  notice:
+    create: タスクを作成しました！
+    update: タスクを編集しました！
+    destroy: タスクを削除しました！
