@@ -1,0 +1,15 @@
+ja:
+  view:
+    index:
+    index_title: タスク一覧
+    index_table_th1: タスク名
+    index_table_th2: タスク詳細
+
+    edit:
+    edit_title: タスク編集
+
+    new:
+    new_title: 新規作成
+
+    show:
+    show_title: タスク詳細
