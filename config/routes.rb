@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  #get '/', to: 'tasks#index' do
+  get '/', to: 'tasks#index'
   resources :tasks
-  #end
 end
