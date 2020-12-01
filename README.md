@@ -1,15 +1,16 @@
-User model/users table
+# Taskモデル、tasksテーブル
+|Column|Type|
+|------|----|
+|task_id||integer|
+|title||string|
+|content||text|
+|priority||status|
+|deadline||date|
 
-| name            | text |      |
-| email_adress    | text |      |
-| password        | text |      |                        
-| password_digest | text |      |
-
-
-Task model/tasks table
-
-| title    | text    |      |
-| content  | text    |      |
-| priority | integer |      |      
-| status   | integer |      |
-| deadline | Date    |      |
+# Userモデル、usersテーブル
+|Column|Type|
+|------|----|
+|user_id||integer|
+|name||string|
+|email_adress||string|
+|password_digest||string|
