@@ -1,3 +1,12 @@
+#Herokuへのデプロイ手順
+***
+1. アセットプリコンパイルをする。
+'$ rails assets:precompile RAILS_ENV=production　を実行する'
+2. コミットする。
+'git add、git commit -m "コメント"、git push origin masterを実行する。'
+3. Herokuに新しいアプリケーションを作成する。
+
+
 # Taskモデル、tasksテーブル
 |Column|Type|
 |------|----|
