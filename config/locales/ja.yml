@@ -14,6 +14,8 @@ ja:
     button_show: 詳細
     button_destroy: 削除
 
+    error: 件のエラーがあります
+
   notice:
     create: タスクを作成しました！
     update: タスクを編集しました！
