@@ -14,6 +14,7 @@ ja:
     button_index: 一覧
     button_show: 詳細
     button_destroy: 削除
+    button_expired_at_sort: 終了期限順
 
     error: 件のエラーがあります
 
