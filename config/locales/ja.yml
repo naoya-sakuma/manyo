@@ -4,6 +4,7 @@ ja:
     task_title: タスク名
     task_content: タスク内容
     task_expired_at: 終了期限
+    task_status: ステータス
 
     title_edit: タスク編集
     title_new: 新規作成

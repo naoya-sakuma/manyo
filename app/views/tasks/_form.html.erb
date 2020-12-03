@@ -26,6 +26,11 @@
     <%= task.date_field :expired_at %>
   </div>
 
+  <div class="field">
+    <%= task.label :status, t('view.task_expired_at') %>
+    <%= task.select :status, [['未着手', '未着手'], ['着手中', '着手中'],['完了', '完了']], include_blanc: '選択してください' %>
+  </div>
+
   <div class="actions">
     <%= task.submit value= t('view.button_create') %>
   </div>
