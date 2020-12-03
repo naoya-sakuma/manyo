@@ -1,0 +1,22 @@
+ja:
+  view:
+    task_index: タスク一覧
+    task_name: タスク名
+    task_show: タスク詳細
+
+    title_edit: タスク編集
+    title_new: 新規作成
+    title_show: タスク詳細
+
+    button_create: 登録
+    button_edit: 編集
+    button_index: 一覧
+    button_show: 詳細
+    button_destroy: 削除
+
+    error: 件のエラーがあります
+
+  notice:
+    create: タスクを作成しました！
+    update: タスクを編集しました！
+    destroy: タスクを削除しました！

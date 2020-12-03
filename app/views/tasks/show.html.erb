@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>show：タスク詳細</h1>
+<h1><%= t('view.show_title') %></h1>
 
 <div>
 <p>
@@ -13,5 +13,5 @@
   <%= @task.content %>
 </p>
 
-<%= link_to '編集', edit_task_path(@task) %> |
-<%= link_to '戻る', tasks_path %>
+<%= link_to t('view.button_edit'), edit_task_path(@task) %> |
+<%= link_to t('view.button_index'), tasks_path %>
