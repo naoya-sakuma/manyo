@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_042304) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "expired_at"
+    t.integer "status"
   end
 
 end
