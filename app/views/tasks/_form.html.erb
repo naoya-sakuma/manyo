@@ -12,13 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= task.label :title, t('view.task_name') %>
+    <%= task.label :title, t('view.task_title') %>
     <%= task.text_field :title %>
   </div>
 
   <div class="field">
-    <%= task.label :content, t('view.task_show') %>
+    <%= task.label :content, t('view.task_content') %>
     <%= task.text_field :content %>
+  </div>
+
+  <div class="field">
+    <%= task.label :expired_at, t('view.task_expired_at') %>
+    <%= task.date_field :expired_at %>
   </div>
 
   <div class="actions">

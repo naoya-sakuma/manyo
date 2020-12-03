@@ -1,8 +1,9 @@
 ja:
   view:
     task_index: タスク一覧
-    task_name: タスク名
-    task_show: タスク詳細
+    task_title: タスク名
+    task_content: タスク内容
+    task_expired_at: 終了期限
 
     title_edit: タスク編集
     title_new: 新規作成
