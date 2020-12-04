@@ -31,6 +31,12 @@
     <%= task.select :status, [['指定なし', ''], ['未着手', '未着手'], ['着手中', '着手中'],['完了', '完了']], include_blanc: '選択してください' %>
   </div>
 
+  <div class="field">
+    <%= task.label :priority, t('view.task_priority') %>
+    <%= task.select :priority, Task.priorities.keys.to_a, include_blank: true %>
+    <%# <%= task.select :priority, [['指定なし', ''], ['高', '高'], ['中', '中'],['低', '低']], include_blanc: '選択してください' %> %>
+  </div>
+
   <div class="actions">
     <%= task.submit value= t('view.button_create') %>
   </div>

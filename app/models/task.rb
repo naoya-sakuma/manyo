@@ -5,4 +5,10 @@ class Task < ApplicationRecord
   scope :both_title_status, -> title, status { where('title like?', "%#{title}%").where('status like?', "#{status}") }
   scope :only_title, -> title { where('title like?', "%#{title}%")}
   scope :only_status, -> status { where('status like?', "#{status}")}
+
+  enum priority:{
+    高: 0,
+    中: 1,
+    低: 2,
+  }
 end

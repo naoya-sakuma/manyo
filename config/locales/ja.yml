@@ -5,6 +5,7 @@ ja:
     task_content: タスク内容
     task_expired_at: 終了期限
     task_status: ステータス
+    task_priority: 優先度
 
     search_title: タイトル検索
     search_status: ステータス検索
@@ -24,6 +25,11 @@ ja:
 
   error:
     validation_error: 件のエラーがあります
+
+  priority:
+    high: 高
+    middle: 中
+    low: 低
 
   notice:
     create: タスクを作成しました！
