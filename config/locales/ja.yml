@@ -22,6 +22,7 @@ ja:
     button_show: 詳細
     button_destroy: 削除
     button_expired_at_sort: 終了期限順
+    button_priority_sort: 優先度順
 
   error:
     validation_error: 件のエラーがあります

@@ -5,6 +5,8 @@ class TasksController < ApplicationController
     @tasks = Task.all
       if params[:sort_expired] != nil
         @tasks = Task.order(expired_at: :asc)
+      elsif params[:sort_priority] != nil
+        @tasks = Task.order(priority: :asc)
       elsif params[:title].present? && params[:status].present?
         @tasks = Task.both_title_status(params[:title], params[:status])
       elsif params[:title].present? && params[:status].blank?
