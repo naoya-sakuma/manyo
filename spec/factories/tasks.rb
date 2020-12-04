@@ -5,6 +5,7 @@ FactoryBot.define do
     content { 'コンテント1' }
     expired_at { '2020-12-03' }
     status {'未着手'}
+    priority { '高' }
   end
   factory :second_task, class: Task do
     id { 2 }
@@ -12,6 +13,7 @@ FactoryBot.define do
     content { 'コンテント２' }
     expired_at { '2020-12-02' }
     status {'着手中'}
+    priority { '中' }
   end
   factory :third_task, class: Task do
     id { 3 }
@@ -19,5 +21,6 @@ FactoryBot.define do
     content { 'コンテント3' }
     expired_at { '2020-12-01' }
     status {'完了'}
+    priority { '低' }
   end
 end
