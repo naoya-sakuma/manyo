@@ -1,7 +1,7 @@
 <%= form_with(model: @task, local: true) do |task| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, t('view.error')) %></h2>
+      <h2><%= pluralize(@task.errors.count, t('error.validation_error')) %></h2>
 
       <ul>
       <% @task.errors.full_messages.each do |message| %>
@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= task.label :status, t('view.task_expired_at') %>
-    <%= task.select :status, [['未着手', '未着手'], ['着手中', '着手中'],['完了', '完了']], include_blanc: '選択してください' %>
+    <%= task.select :status, [['指定なし', ''], ['未着手', '未着手'], ['着手中', '着手中'],['完了', '完了']], include_blanc: '選択してください' %>
   </div>
 
   <div class="actions">

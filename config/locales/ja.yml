@@ -6,6 +6,11 @@ ja:
     task_expired_at: 終了期限
     task_status: ステータス
 
+    search_title: タイトル検索
+    search_status: ステータス検索
+    search_start: 検索
+    search_clear: 全タスク
+
     title_edit: タスク編集
     title_new: 新規作成
     title_show: タスク詳細
@@ -17,7 +22,8 @@ ja:
     button_destroy: 削除
     button_expired_at_sort: 終了期限順
 
-    error: 件のエラーがあります
+  error:
+    validation_error: 件のエラーがあります
 
   notice:
     create: タスクを作成しました！
