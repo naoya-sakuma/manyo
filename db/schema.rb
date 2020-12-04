@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_042304) do
     t.datetime "updated_at", null: false
     t.date "expired_at"
     t.string "status"
-    t.string "priority"
+    t.integer "priority"
   end
 
 end
