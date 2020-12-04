@@ -4,11 +4,11 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all
       if params[:title].present? && params[:status].present?
-        @tasks = Task.where('title like?', "%#{params[:title]}%").where('status like?', "%#{params[:status]}%")
+        @tasks = Task.both_title_status(params[:title], params[:status])
       elsif params[:title].present? && params[:status].blank?
-        @tasks = Task.where('title like?', "%#{params[:title]}%")
+        @tasks = Task.only_title(params[:title])
       elsif params[:title].blank? && params[:status].present?
-        @tasks = Task.where('status like?', "%#{params[:status]}%")
+        @tasks = Task.only_status(params[:status])
       end
   end
 
