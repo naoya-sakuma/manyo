@@ -3,7 +3,9 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
-      if params[:title].present? && params[:status].present?
+      if params[:sort_expired] != nil
+        @tasks = Task.order(expired_at: :asc)
+      elsif params[:title].present? && params[:status].present?
         @tasks = Task.both_title_status(params[:title], params[:status])
       elsif params[:title].present? && params[:status].blank?
         @tasks = Task.only_title(params[:title])
