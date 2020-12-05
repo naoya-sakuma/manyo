@@ -27,7 +27,7 @@
   </div>
 
   <div class="field">
-    <%= task.label :status, t('view.task_expired_at') %>
+    <%= task.label :status, t('view.task_status') %>
     <%= task.select :status, [['指定なし', ''], ['未着手', '未着手'], ['着手中', '着手中'],['完了', '完了']], include_blanc: '選択してください' %>
   </div>
 
