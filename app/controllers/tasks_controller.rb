@@ -6,15 +6,16 @@ class TasksController < ApplicationController
     #@tasks = Task.all
     @tasks = Task.page(params[:page]).per(PER)
       if params[:sort_expired] != nil
-        @tasks = Task.order(expired_at: :asc)
+        #@tasks = Task.page(params[:page]).per(PER)
+        @tasks = Task.order(expired_at: :asc).page(params[:page]).per(PER)
       elsif params[:sort_priority] != nil
-        @tasks = Task.order(priority: :asc)
+        @tasks = Task.order(priority: :asc).page(params[:page]).per(PER)
       elsif params[:title].present? && params[:status].present?
-        @tasks = Task.both_title_status(params[:title], params[:status])
+        @tasks = Task.both_title_status(params[:title], params[:status]).page(params[:page]).per(PER)
       elsif params[:title].present? && params[:status].blank?
-        @tasks = Task.only_title(params[:title])
+        @tasks = Task.only_title(params[:title]).page(params[:page]).per(PER)
       elsif params[:title].blank? && params[:status].present?
-        @tasks = Task.only_status(params[:status])
+        @tasks = Task.only_status(params[:status]).page(params[:page]).per(PER)
       end
   end
 
