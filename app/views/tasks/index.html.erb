@@ -2,21 +2,25 @@
 
 <h1><%= t('view.task_index') %></h1>
   <%= form_with url:'/tasks', method: :get, local: true do |f| %>
+  <button class='new_create'><%= link_to t('view.button_create'), new_task_path %></button>
+  <br>
   <%= f.label :title, t('view.search_title') %>
   <%= f.text_field :title %>
-
   <%= f.label :status, t('view.search_status') %>
   <%= f.select :status, [['指定なし', ''], ['未着手', '未着手'], ['着手中', '着手中'],['完了', '完了']], include_blanc: '選択してください' %>
-  <%= f.submit t('view.search_start') %> <%= link_to t('view.search_clear'), tasks_path %>
+  <%= f.submit t('view.search_start') %>
+  <button><%= link_to t('view.search_clear'), tasks_path %></button>
 <% end %>
+
 <table>
   <thead>
     <tr>
       <th><%= t('view.task_title') %></th>
       <th><%= t('view.task_content') %></th>
-      <th><%= t('view.task_expired_at') %></th>
+      <th><%= link_to t('view.task_expired_at'), tasks_path(sort_expired: "true") %></th>
+      <th><%= t('view.task_created_at') %></th>
       <th><%= t('view.task_status') %></th>
-      <th><%= t('view.task_priority') %></th>
+      <th><%= link_to t('view.task_priority'), tasks_path(sort_priority: "true") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,6 +31,7 @@
         <td class="task_row"><%= task.title %></td>
         <td><%= task.content %></td>
         <td><%= task.expired_at %></td>
+        <td><%= task.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
         <td><%= task.status %></td>
         <td><%= task.priority %></td>
         <td><%= link_to t('view.button_show'), task %></td>
@@ -36,9 +41,7 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @tasks %>
 
-<br>
-<%= link_to t('view.button_expired_at_sort'), tasks_path(sort_expired: "true") %>
-<%= link_to t('view.button_priority_sort'), tasks_path(sort_priority: "true") %>
-<%= link_to t('view.button_create'), new_task_path %>
+<div class=page_selector>
+  <%= paginate @tasks %>
+</div>

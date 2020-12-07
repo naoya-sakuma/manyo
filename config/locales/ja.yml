@@ -4,19 +4,20 @@ ja:
     task_title: タスク名
     task_content: タスク内容
     task_expired_at: 終了期限
+    task_created_at: 登録日時
     task_status: ステータス
     task_priority: 優先度
 
     search_title: タイトル検索
     search_status: ステータス検索
     search_start: 検索
-    search_clear: 全タスク
+    search_clear: 検索クリア
 
     title_edit: タスク編集
     title_new: 新規作成
     title_show: タスク詳細
 
-    button_create: 登録
+    button_create: 新規タスク登録
     button_edit: 編集
     button_index: 一覧
     button_show: 詳細
@@ -43,3 +44,8 @@ ja:
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "..."
+
+
+　　time:
+　　　　formats:
+　　　　　　default: "%Y/%m/%d %H:%M:%S"

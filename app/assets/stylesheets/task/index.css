@@ -1,0 +1,34 @@
+.new_create {
+  margin-bottom: 20px;
+}
+
+table {
+  font-size: 18px;
+}
+
+th {
+  padding: 10px;
+  text-align: center;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+form {
+  padding: 20px;
+}
+
+label {
+  padding-left: 10px;
+  font-size: 18px;
+}
+.table {
+  text-align: center;
+}
+.page_selector {
+  text-align: center;
+}

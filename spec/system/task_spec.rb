@@ -36,7 +36,7 @@ RSpec.describe 'タスク管理機能', type: :system do
         task = FactoryBot.create(:second_task)
         task = FactoryBot.create(:third_task)
         visit tasks_path
-        click_on '終了期限順'
+        click_on '終了期限'
         task_list = all('.task_row')
         expect(task_list[0]).to have_content 'タイトル3'
       end
@@ -47,7 +47,7 @@ RSpec.describe 'タスク管理機能', type: :system do
         task = FactoryBot.create(:second_task)
         task = FactoryBot.create(:third_task)
         visit tasks_path
-        click_on '優先度順'
+        click_on '優先度'
         task_list = all('.task_row')
         expect(task_list[0]).to have_content 'タイトル1'
       end
