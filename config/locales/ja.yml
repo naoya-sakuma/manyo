@@ -19,7 +19,7 @@ ja:
 
     button_create: 新規タスク登録
     button_edit: 編集
-    button_index: 一覧
+    button_index: タスク一覧
     button_show: 詳細
     button_destroy: 削除
     button_expired_at_sort: 終了期限順
