@@ -3,10 +3,8 @@ class TasksController < ApplicationController
   PER = 8
 
   def index
-    #@tasks = Task.all
     @tasks = Task.page(params[:page]).per(PER)
       if params[:sort_expired] != nil
-        #@tasks = Task.page(params[:page]).per(PER)
         @tasks = Task.order(expired_at: :asc).page(params[:page]).per(PER)
       elsif params[:sort_priority] != nil
         @tasks = Task.order(priority: :asc).page(params[:page]).per(PER)
