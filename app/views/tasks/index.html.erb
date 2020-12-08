@@ -1,8 +1,8 @@
-<h1><%= t('view.task_index') %></h1>
+<h1 class="tasks_index_h1"><%= t('view.task_index') %></h1>
 <p id="notice"><%= notice %></p>
-  <%= form_with url:'/tasks', method: :get, local: true do |f| %>
+  <%= form_with url:'/tasks', class: "tasks_index_form", method: :get, local: true do |f| %>
   <br>
-  <%= f.label :title, t('view.search_title') %>
+  <%= f.label :title, t('view.search_title'), class: "tasks_index_label" %>
   <%= f.text_field :title %>
   <%= f.label :status, t('view.search_status') %>
   <%= f.select :status, [['指定なし', ''], ['未着手', '未着手'], ['着手中', '着手中'],['完了', '完了']], include_blanc: '選択してください' %>
@@ -10,7 +10,7 @@
   <button type="button" class="btn btn-default"><%= link_to t('view.search_clear'), tasks_path %></button>
 <% end %>
 
-<table>
+<table class="tasks_index_table">
   <thead>
     <tr>
       <th><%= t('view.task_title') %></th>
@@ -25,7 +25,7 @@
 
   <tbody>
     <% @tasks.each do |task| %>
-      <tr class='task_index'>
+      <tr class='tasks_index_tr'>
         <td class="task_row"><%= task.title %></td>
         <td><%= task.content %></td>
         <td><%= task.expired_at %></td>
@@ -40,6 +40,6 @@
   </tbody>
 </table>
 
-<div class=page_selector>
+<div class="tasks_index_page_selector">
   <%= paginate @tasks %>
 </div>

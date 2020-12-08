@@ -1,0 +1,44 @@
+.tasks_index_table {
+  font-size: 18px;
+  margin: auto;
+  width: 95%;
+}
+
+.tasks_index_table th {
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+.tasks_index_table td {
+  padding: 10px;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.tasks_index_table tr {
+  border-bottom: 1px solid gray;
+}
+
+.tasks_index_h1 {
+  margin-top: 50px;
+}
+
+.tasks_index_form {
+  padding: 20px;
+}
+
+.tasks_index_label {
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+.btn {
+  color: #337ab7;
+}
+
+.tasks_index_page_selector {
+  text-align: center;
+}
