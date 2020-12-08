@@ -26,6 +26,10 @@
           <ul class="nav navbar-nav">
             <li><%= link_to t('view.button_create'), new_task_path %></li>
             <li><%= link_to t('view.button_index'), tasks_path %></li>
+            <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
+            <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+            <li><%= link_to "サインアップ", new_user_path %></li>
+            <li><%= link_to "ログイン", new_session_path %></li>
           </ul>
         </div>
       </div>
