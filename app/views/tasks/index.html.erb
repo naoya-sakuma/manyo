@@ -1,30 +1,46 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= t('view.task_index') %></h1>
+<p id="notice"><%= notice %></p>
+  <%= form_with url:'/tasks', method: :get, local: true do |f| %>
+  <!-- <button type="submit" class="btn btn-default" id='new_create'><%= link_to t('view.button_create'), new_task_path %></button> -->
+  <br>
+  <%= f.label :title, t('view.search_title') %>
+  <%= f.text_field :title %>
+  <%= f.label :status, t('view.search_status') %>
+  <%= f.select :status, [['指定なし', ''], ['未着手', '未着手'], ['着手中', '着手中'],['完了', '完了']], include_blanc: '選択してください' %>
+  <%= f.submit t('view.search_start'), class: "btn btn-default"%>
+  <button type="button" class="btn btn-default"><%= link_to t('view.search_clear'), tasks_path %></button>
+<% end %>
 
 <table>
   <thead>
     <tr>
-      <th><%= t('view.task_name') %></th>
-      <th><%= t('view.task_show') %></th>
+      <th><%= t('view.task_title') %></th>
+      <th><%= t('view.task_content') %></th>
+      <th><%= link_to t('view.task_expired_at'), tasks_path(sort_expired: "true") %></th>
+      <th><%= t('view.task_created_at') %></th>
+      <th><%= t('view.task_status') %></th>
+      <th><%= link_to t('view.task_priority'), tasks_path(sort_priority: "true") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @tasks.each do |task| %>
-      <tr>
+      <tr class='task_index'>
         <td class="task_row"><%= task.title %></td>
         <td><%= task.content %></td>
-
-        <td><%= link_to t('view.button_show'), task %></td>
-        <td><%= link_to t('view.button_edit'), edit_task_path(task) %></td>
-        <td><%= link_to t('view.button_destroy'), task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= task.expired_at %></td>
+        <td><%= task.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+        <td><%= task.status %></td>
+        <td><%= task.priority %></td>
+        <td><button type="button" class="btn btn-default"><%= link_to t('view.button_show'), task %></button></td>
+        <td><button type="button" class="btn btn-default"><%= link_to t('view.button_edit'), edit_task_path(task) %></button></td>
+        <td><button type="button" class="btn btn-default"><%= link_to t('view.button_destroy'), task, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to t('view.button_create'), new_task_path %>
+<div class=page_selector>
+  <%= paginate @tasks %>
+</div>

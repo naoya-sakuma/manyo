@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= t('view.show_title') %></h1>
+<h1><%= t('view.title_show') %></h1>
 
 <div>
 <p>
@@ -11,6 +11,21 @@
 <p>
   <strong>詳細:</strong>
   <%= @task.content %>
+</p>
+
+<p>
+  <strong>終了期限:</strong>
+  <%= @task.expired_at %>
+</p>
+
+<p>
+  <strong>終了期限:</strong>
+  <%= @task.status %>
+</p>
+
+<p>
+  <strong>優先度:</strong>
+  <%= @task.priority %>
 </p>
 
 <%= link_to t('view.button_edit'), edit_task_path(@task) %> |

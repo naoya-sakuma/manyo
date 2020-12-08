@@ -1,0 +1,55 @@
+html {
+  width: 100%;
+}
+body {
+  position: relative;
+  width: auto;
+  text-align: center;
+}
+header {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+h1{
+  margin-top: 50px;
+}
+table {
+  font-size: 18px;
+  margin: auto;
+  width: 95%;
+}
+th {
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+form {
+  padding: 20px;
+}
+
+label {
+  padding-left: 10px;
+  font-size: 18px;
+}
+.btn {
+  color: #337ab7;
+}
+.table {
+  text-align: center;
+}
+.page_selector {
+  text-align: center;
+}
+.task_index {
+  border-bottom: 1px solid gray;
+}

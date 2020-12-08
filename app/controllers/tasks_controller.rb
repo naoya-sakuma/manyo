@@ -1,8 +1,22 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  PER = 8
 
   def index
-    @tasks = Task.order(created_at: :desc)
+    #@tasks = Task.all
+    @tasks = Task.page(params[:page]).per(PER)
+      if params[:sort_expired] != nil
+        #@tasks = Task.page(params[:page]).per(PER)
+        @tasks = Task.order(expired_at: :asc).page(params[:page]).per(PER)
+      elsif params[:sort_priority] != nil
+        @tasks = Task.order(priority: :asc).page(params[:page]).per(PER)
+      elsif params[:title].present? && params[:status].present?
+        @tasks = Task.both_title_status(params[:title], params[:status]).page(params[:page]).per(PER)
+      elsif params[:title].present? && params[:status].blank?
+        @tasks = Task.only_title(params[:title]).page(params[:page]).per(PER)
+      elsif params[:title].blank? && params[:status].present?
+        @tasks = Task.only_status(params[:status]).page(params[:page]).per(PER)
+      end
   end
 
   def show
@@ -57,11 +71,10 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :content)
+    params.require(:task).permit(:title, :content, :expired_at, :status, :priority)
   end
 
   def update_task_params
-    params.require(:task).permit(:title, :content)
+    params.require(:task).permit(:title, :content, :expired_at, :status, :priority)
   end
-
 end

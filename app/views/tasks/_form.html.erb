@@ -1,7 +1,7 @@
 <%= form_with(model: @task, local: true) do |task| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, t('view.error')) %></h2>
+      <h2><%= pluralize(@task.errors.count, t('error.validation_error')) %></h2>
 
       <ul>
       <% @task.errors.full_messages.each do |message| %>
@@ -12,13 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= task.label :title, t('view.task_name') %>
+    <%= task.label :title, t('view.task_title') %>
     <%= task.text_field :title %>
   </div>
 
   <div class="field">
-    <%= task.label :content, t('view.task_show') %>
+    <%= task.label :content, t('view.task_content') %>
     <%= task.text_field :content %>
+  </div>
+
+  <div class="field">
+    <%= task.label :expired_at, t('view.task_expired_at') %>
+    <%= task.date_field :expired_at %>
+  </div>
+
+  <div class="field">
+    <%= task.label :status, t('view.task_status') %>
+    <%= task.select :status, [['指定なし', ''], ['未着手', '未着手'], ['着手中', '着手中'],['完了', '完了']], include_blanc: '選択してください' %>
+  </div>
+
+  <div class="field">
+    <%= task.label :priority, t('view.task_priority') %>
+    <%= task.select :priority, Task.priorities.keys.to_a, include_blank: true %>
   </div>
 
   <div class="actions">
