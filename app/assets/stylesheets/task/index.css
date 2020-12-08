@@ -41,6 +41,9 @@ label {
   padding-left: 10px;
   font-size: 18px;
 }
+h1 {
+  margin-top: 10px;
+}
 .btn {
   color: #337ab7;
 }
@@ -52,4 +55,7 @@ label {
 }
 .task_index {
   border-bottom: 1px solid gray;
+}
+.danger {
+  margin-top: 50px;
 }
