@@ -3,18 +3,22 @@ class TasksController < ApplicationController
   PER = 8
 
   def index
-    @tasks = Task.page(params[:page]).per(PER)
-      if params[:sort_expired] != nil
-        @tasks = Task.order(expired_at: :asc).page(params[:page]).per(PER)
-      elsif params[:sort_priority] != nil
-        @tasks = Task.order(priority: :asc).page(params[:page]).per(PER)
-      elsif params[:title].present? && params[:status].present?
-        @tasks = Task.both_title_status(params[:title], params[:status]).page(params[:page]).per(PER)
-      elsif params[:title].present? && params[:status].blank?
-        @tasks = Task.only_title(params[:title]).page(params[:page]).per(PER)
-      elsif params[:title].blank? && params[:status].present?
-        @tasks = Task.only_status(params[:status]).page(params[:page]).per(PER)
-      end
+    if logged_in?
+      @tasks = Task.page(params[:page]).per(PER)
+        if params[:sort_expired] != nil
+          @tasks = Task.order(expired_at: :asc).page(params[:page]).per(PER)
+        elsif params[:sort_priority] != nil
+          @tasks = Task.order(priority: :asc).page(params[:page]).per(PER)
+        elsif params[:title].present? && params[:status].present?
+          @tasks = Task.both_title_status(params[:title], params[:status]).page(params[:page]).per(PER)
+        elsif params[:title].present? && params[:status].blank?
+          @tasks = Task.only_title(params[:title]).page(params[:page]).per(PER)
+        elsif params[:title].blank? && params[:status].present?
+          @tasks = Task.only_status(params[:status]).page(params[:page]).per(PER)
+        end
+    else
+      redirect_to new_session_path
+    end
   end
 
   def show
