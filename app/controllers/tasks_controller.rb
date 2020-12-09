@@ -46,7 +46,6 @@ class TasksController < ApplicationController
   def edit
   end
 
-
   def update
     respond_to do |format|
       if @task.update(update_task_params)
