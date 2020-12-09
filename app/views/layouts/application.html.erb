@@ -29,11 +29,12 @@
               <li><%= link_to t('view.button_index'), tasks_path %></li>
               <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
               <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
-              <li><%= link_to "管理画面", admin_users_path %></li>
+              <% if current_user.admin? %>
+                <li><%= link_to "管理画面", admin_users_path %></li>
+              <% end %>
             <% else %>
               <li><%= link_to "サインアップ", new_user_path %></li>
               <li><%= link_to "ログイン", new_session_path %></li>
-              <li><%= link_to "管理画面", admin_users_path %></li>
             <% end %>
           </ul>
         </div>

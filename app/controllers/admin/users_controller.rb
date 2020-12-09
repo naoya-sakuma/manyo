@@ -4,7 +4,11 @@ class Admin::UsersController < ApplicationController
   end
 
   def index
-    @admin_users = User.all.includes(:tasks)
+    if current_user.admin?
+      @admin_users = User.all.includes(:tasks)
+    else
+      redirect_to tasks_path, notice: '管理者のみ閲覧できるページです。'
+    end
   end
 
   def create
@@ -48,7 +52,7 @@ class Admin::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
   end
 
   def update_task_params
