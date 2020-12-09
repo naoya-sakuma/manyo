@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @admin_user_tasks.each do |task| %>
+    <% @admin_user.tasks.each do |task| %>
       <tr class='tasks_index_tr'>
         <td class="task_row"><%= task.title %></td>
         <td><%= task.content %></td>

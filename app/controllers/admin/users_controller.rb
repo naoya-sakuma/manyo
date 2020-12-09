@@ -18,7 +18,7 @@ class Admin::UsersController < ApplicationController
 
   def show
     @admin_user = User.find(params[:id])
-    @admin_user_tasks = Task.where(user_id: params[:id])
+    #@admin_user_tasks = Task.where(user_id: params[:id])
   end
 
   def edit
