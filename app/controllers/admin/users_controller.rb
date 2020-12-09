@@ -1,6 +1,19 @@
 class Admin::UsersController < ApplicationController
+  def new
+    @admin_user = User.new
+  end
+
   def index
     @admin_users = User.all
+  end
+
+  def create
+    @admin_user = User.new(user_params)
+    if @admin_user.save
+      redirect_to admin_user_path(@admin_user.id)
+    else
+      render :new
+    end
   end
 
   def show
@@ -13,7 +26,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      if @admin_user.update(update_task_params)
+      if @admin_user.update(user_params)
         format.html { redirect_to @admin_user, notice: t('notice.update') }
         format.json { render :show, status: :ok, location: @admin_user }
       else
@@ -31,4 +44,12 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def update_task_params
+    params.require(:task).permit(:title, :content, :expired_at, :status, :priority)
+  end
 end
