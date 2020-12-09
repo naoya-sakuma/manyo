@@ -25,13 +25,14 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
+    @admin_user = User.find(params[:id])
     respond_to do |format|
       if @admin_user.update(user_params)
-        format.html { redirect_to @admin_user, notice: t('notice.update') }
-        format.json { render :show, status: :ok, location: @admin_user }
+        format.html { redirect_to admin_user_path(@admin_user), notice: t('notice.update') }
+        format.json { render :show, status: :ok, location: admin_user_path(@admin_user) }
       else
         format.html { render :edit }
-        format.json { render json: @admin_user.errors, status: :unprocessable_entity }
+        format.json { render json: admin_user_path(@admin_user).errors, status: :unprocessable_entity }
       end
     end
   end
