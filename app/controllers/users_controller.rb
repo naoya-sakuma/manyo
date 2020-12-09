@@ -18,7 +18,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_tasks = Task.where(user_id: params[:id])
     if current_user.id != @user.id
       redirect_to user_path(current_user.id)
     end
