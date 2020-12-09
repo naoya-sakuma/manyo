@@ -15,14 +15,14 @@
   </thead>
 
   <tbody>
-    <% @admin_user_tasks.each do |user_task| %>
+    <% @admin_user_tasks.each do |task| %>
       <tr class='tasks_index_tr'>
-        <td class="task_row"><%= user_task.title %></td>
-        <td><%= user_task.content %></td>
-        <td><%= user_task.expired_at %></td>
-        <td><%= user_task.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
-        <td><%= user_task.status %></td>
-        <td><%= user_task.priority %></td>
+        <td class="task_row"><%= task.title %></td>
+        <td><%= task.content %></td>
+        <td><%= task.expired_at %></td>
+        <td><%= task.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+        <td><%= task.status %></td>
+        <td><%= task.priority %></td>
       </tr>
     <% end %>
   </tbody>
