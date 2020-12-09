@@ -15,6 +15,7 @@
     <tr>
       <th><%= t('view.task_title') %></th>
       <th><%= t('view.task_content') %></th>
+      <th>作成者</th>
       <th><%= link_to t('view.task_expired_at'), tasks_path(sort_expired: "true") %></th>
       <th><%= t('view.task_created_at') %></th>
       <th><%= t('view.task_status') %></th>
@@ -28,6 +29,7 @@
       <tr class='tasks_index_tr'>
         <td class="task_row"><%= task.title %></td>
         <td><%= task.content %></td>
+        <td><%= task.user.name %></td>
         <td><%= task.expired_at %></td>
         <td><%= task.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
         <td><%= task.status %></td>

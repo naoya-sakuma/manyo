@@ -18,6 +18,7 @@ class Admin::UsersController < ApplicationController
 
   def show
     @admin_user = User.find(params[:id])
+    @admin_user_tasks = Task.where(id: params[:id])
   end
 
   def edit
@@ -38,9 +39,10 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
+    @admin_user = User.find(params[:id])
     @admin_user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: t('notice.destroy') }
+      format.html { redirect_to admin_users_path, notice: t('notice.destroy') }
       format.json { head :no_content }
     end
   end
