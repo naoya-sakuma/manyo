@@ -9,7 +9,8 @@ RSpec.describe 'ユーザー登録機能', type: :system do
         fill_in 'パスワード', with: 'test@test.com'
         fill_in '確認用パスワード', with: 'test@test.com'
         click_on 'Create my account'
-        
+        expect(page).to have_content 'test'
+        expect(page).to have_content 'test@test.com'
       end
     end
   end
@@ -17,6 +18,8 @@ RSpec.describe 'ユーザー登録機能', type: :system do
     describe 'ユーザー新規登録機能' do
       context 'ログインせずにタスク一覧に移動した場合' do
         it 'ログイン画面に移動する' do
+          visit tasks_path
+          expect(page).to have_content 'Log in'
         end
       end
     end
