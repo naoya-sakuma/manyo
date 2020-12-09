@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def index
-    @admin_users = User.all
+    @admin_users = User.all.includes(:tasks)
   end
 
   def create
@@ -18,7 +18,6 @@ class Admin::UsersController < ApplicationController
 
   def show
     @admin_user = User.find(params[:id])
-    #@admin_user_tasks = Task.where(user_id: params[:id])
   end
 
   def edit
