@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to user_path(@user.id)
     else
       render :new
@@ -18,10 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    path = Rails.application.routes.recognize_path(request.referer)
-    if path[:controller] == "users" && path[:action] == "new"
-      @user
-    else  current_user.id != @user.id
+    if current_user.id != @user.id
       redirect_to user_path(current_user.id)
     end
   end

@@ -15,12 +15,23 @@ RSpec.describe 'ユーザー登録機能', type: :system do
     end
   end
 
-    describe 'ユーザー新規登録機能' do
-      context 'ログインせずにタスク一覧に移動した場合' do
-        it 'ログイン画面に移動する' do
-          visit tasks_path
-          expect(page).to have_content 'Log in'
-        end
+  describe 'ユーザー新規登録機能' do
+    context 'ログインせずにタスク一覧に移動した場合' do
+      it 'ログイン画面に移動する' do
+        visit tasks_path
+        expect(page).to have_content 'Log in'
       end
     end
   end
+
+  describe 'ユーザーログイン機能' do
+    context 'ユーザーがログインした場合' do
+      it 'ログイン状態になる' do
+        user = FactoryBot.create(:user)
+        visiti new_session_path
+        fill_in 'Email', with: 'test@test.com'
+        fill_in 'Password', with: 'test@test.com'
+      end
+    end
+  end
+end

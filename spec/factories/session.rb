@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :user do
+  factory :session do
     id { 1 }
     name { 'テスト' }
     email { 'test@test.com' }
