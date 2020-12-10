@@ -93,7 +93,7 @@ RSpec.describe 'ユーザー登録機能', type: :system do
         fill_in 'パスワード', with: 'edited_test2@test.com'
         fill_in '確認用パスワード', with: 'edited_test2@test.com'
         fill_in '管理者権限', with: 'false'
-        click_on '新規ユーザー作成'
+        click_on 'ユーザー編集'
         expect(page).not_to have_content '\n編集後テストユーザー2のページ'
       end
     end
@@ -105,7 +105,7 @@ RSpec.describe 'ユーザー登録機能', type: :system do
         fill_in 'パスワード', with: 'admin_test@test.com'
         fill_in '確認用パスワード', with: 'admin_test@test.com'
         fill_in '管理者権限', with: 'true'
-        click_on '新規ユーザー作成'
+        click_on 'ユーザー編集'
         click_on 'ユーザー管理画面'
         click_on '削除', match: :first
         page.driver.browser.switch_to.alert.accept
