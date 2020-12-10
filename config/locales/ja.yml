@@ -44,6 +44,7 @@ ja:
     title_show: タスク詳細
     create: タスクを追加
     user_create: ユーザー登録
+    edit_user: ユーザー編集
     edit: 編集
     show: 詳細
     destroy: 削除
