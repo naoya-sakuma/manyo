@@ -50,6 +50,8 @@ ja:
     destroy: 削除
     expired_at_sort: 終了期限順
     priority_sort: 優先度順
+    manager: 管理ユーザー
+    not_manager: 一般ユーザー
   error:
     validation_error: 件のエラーがあります
   priority:

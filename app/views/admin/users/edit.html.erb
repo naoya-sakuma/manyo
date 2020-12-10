@@ -21,6 +21,6 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
   <%= f.label :admin, t('view.authority') %>
-  <%= f.text_field :admin %>
+  <%= f.select :admin, [[t('view.manager'), 'true'], [t('view.not_manager'), 'false']] %>
   <%= f.submit t('view.edit_user') %>
 <% end %>
