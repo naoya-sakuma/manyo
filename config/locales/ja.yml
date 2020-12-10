@@ -82,3 +82,11 @@ ja:
 　　time:
 　　　　formats:
 　　　　　　default: "%Y/%m/%d %H:%M:%S"
+
+　　activerecord:
+    errors:
+      messages:
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
