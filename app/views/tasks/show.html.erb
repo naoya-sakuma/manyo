@@ -3,29 +3,29 @@
 
 <div>
 <p>
-  <strong>タイトル:</strong>
+  <strong><%= t('view.task_name2') %></strong>
   <%= @task.title %>
 </p>
 
 <p>
-  <strong>詳細:</strong>
+  <strong><%= t('view.task_content2') %></strong>
   <%= @task.content %>
 </p>
 
 <p>
-  <strong>終了期限:</strong>
+  <strong><%= t('view.expired_at2') %></strong>
   <%= @task.expired_at %>
 </p>
 
 <p>
-  <strong>終了期限:</strong>
+  <strong><%= t('view.status2') %></strong>
   <%= @task.status %>
 </p>
 
 <p>
-  <strong>優先度:</strong>
+  <strong><%= t('view.priority2') %></strong>
   <%= @task.priority %>
 </p>
 
-<%= link_to t('view.button_edit'), edit_task_path(@task) %> |
-<%= link_to t('view.button_index'), tasks_path %>
+<%= link_to t('view.edit'), edit_task_path(@task) %> |
+<%= link_to t('view.task_index'), tasks_path %>

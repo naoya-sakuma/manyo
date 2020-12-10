@@ -1,4 +1,4 @@
-<h1>ユーザー作成</h1>
+<h1><%= t('view.create_account') %></h1>
 
 <% if @admin_user.errors.any? %>
   <div id="error_explanation">
@@ -20,7 +20,7 @@
   <%= f.password_field :password %>
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
-  <%= f.label :admin %>
+  <%= f.label :admin, t('view.authority') %>
   <%= f.text_field :admin %>
-  <%= f.submit "Create my account" %>
+  <%= f.submit t('view.user_create') %>
 <% end %>
