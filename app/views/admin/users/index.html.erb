@@ -1,5 +1,9 @@
 <h1><%= t('view.admin_page') %></h1>
-<p><%= link_to t('view.create_account'), new_admin_user_path %></p>
+<p>
+  <%= link_to t('view.create_account'), new_admin_user_path %>
+  <%= link_to 'ラベル作成', new_label_path %>
+</p>
+　
 <table class="tasks_index_table">
   <thead>
     <tr>
