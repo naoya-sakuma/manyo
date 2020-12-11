@@ -32,12 +32,12 @@
   </div>
 
   <div class="field">
-    <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
+    <%= task.label :priority, t('view.priority') %>
+    <%= task.select :priority, Task.priorities.keys.to_a, include_blank: true %>
   </div>
 
   <div class="field">
-    <%= task.label :priority, t('view.priority') %>
-    <%= task.select :priority, Task.priorities.keys.to_a, include_blank: true %>
+    <%= task.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
   </div>
 
   <div class="actions">
