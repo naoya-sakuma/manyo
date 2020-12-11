@@ -49,7 +49,7 @@ class TasksController < ApplicationController
 
   def update
     respond_to do |format|
-      if @task.update(update_task_params)
+      if @task.update(task_params)
         format.html { redirect_to @task, notice: t('notice.update') }
         format.json { render :show, status: :ok, location: @task }
       else
