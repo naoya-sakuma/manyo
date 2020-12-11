@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  get '/', to: 'tasks#index'
+  root 'sessions#new'
   resources :tasks
-  root 'tasks#index'
+  resources :sessions
+  resources :users
+
+  namespace :admin do
+    resources :users
+  end
 end

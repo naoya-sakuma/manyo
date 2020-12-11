@@ -1,51 +1,80 @@
 ja:
   view:
     task_index: タスク一覧
-    task_title: タスク名
+    task_name: タスク名
+    task_name2: タスク名：
     task_content: タスク内容
-    task_expired_at: 終了期限
-    task_created_at: 登録日時
-    task_status: ステータス
-    task_priority: 優先度
-
+    task_content2: タスク内容：
+    expired_at: 終了期限
+    expired_at2: 終了期限：
+    created_at: 登録日時
+    created_at2: 登録日時：
+    status: ステータス
+    status2: ステータス：
+    priority: 優先度
+    priority2: 優先度：
+    page: のページ
+    mypage: マイページ
+    log_in: ログイン
+    log_out: ログアウト
+    admin_page: 管理画面
+    sign_up: サインアップ
+    not_select: 指定なし
+    not_yet_doing: 未着手
+    doing: 着手中
+    done: 完了
+    please_select: 選択してください
+    confirmation_message: 本当に削除しますか？
+    create_account: 新規ユーザー作成
+    name: 名前
+    mail_adress: メールアドレス
+    mail_adress2: メールアドレス：
+    password: パスワード
+    task_count: 登録タスク数
+    user_create: 新規ユーザー登録
+    admin_page: ユーザー管理画面
+    user_edit: ユーザー編集
+    authority: 管理者権限
     search_title: タイトル検索
     search_status: ステータス検索
     search_start: 検索
     search_clear: 検索クリア
-
     title_edit: タスク編集
     title_new: 新規作成
     title_show: タスク詳細
-
-    button_create: 新規タスク登録
-    button_edit: 編集
-    button_index: タスク一覧
-    button_show: 詳細
-    button_destroy: 削除
-    button_expired_at_sort: 終了期限順
-    button_priority_sort: 優先度順
-
+    create: タスクを追加
+    user_create: ユーザー登録
+    edit_user: ユーザー編集
+    edit: 編集
+    show: 詳細
+    destroy: 削除
+    expired_at_sort: 終了期限順
+    priority_sort: 優先度順
+    manager: 管理ユーザー
+    not_manager: 一般ユーザー
   error:
     validation_error: 件のエラーがあります
-
   priority:
     high: 高
     middle: 中
     low: 低
-
   notice:
     create: タスクを作成しました！
     update: タスクを編集しました！
     destroy: タスクを削除しました！
-
-    pagination:
-      first: "&laquo; 最初"
-      last: "最後 &raquo;"
-      previous: "&lsaquo; 前"
-      next: "次 &rsaquo;"
-      truncate: "..."
-
-
-　　time:
-　　　　formats:
-　　　　　　default: "%Y/%m/%d %H:%M:%S"
+  pagination:
+    first: "&laquo; 最初"
+    last: "最後 &raquo;"
+    previous: "&lsaquo; 前"
+    next: "次 &rsaquo;"
+    truncate: "..."
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+  # activerecord:
+  #   errors:
+  #     messages:
+  #       record_invalid: 'バリデーションに失敗しました: %{errors}'
+  #       restrict_dependent_destroy:
+  #         has_one: "%{record}が存在しているので削除できません"
+  #         has_many: "%{record}が存在しているので削除できません"

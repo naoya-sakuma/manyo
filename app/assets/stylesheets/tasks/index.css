@@ -1,55 +1,44 @@
-html {
-  width: 100%;
-}
-body {
-  position: relative;
-  width: auto;
-  text-align: center;
-}
-header {
-  position: absolute;
-  top: 0px;
-  width: 100%;
-}
-h1{
-  margin-top: 50px;
-}
-table {
+.tasks_index_table {
   font-size: 18px;
   margin: auto;
   width: 95%;
 }
-th {
+
+.tasks_index_table th {
   padding: 10px;
   text-align: center;
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
 }
 
-td {
+.tasks_index_table td {
   padding: 10px;
   text-align: center;
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
-form {
+.tasks_index_table tr {
+  border-bottom: 1px solid gray;
+}
+
+.tasks_index_h1 {
+  margin-top: 50px;
+}
+
+.tasks_index_form {
   padding: 20px;
 }
 
-label {
+.tasks_index_label {
   padding-left: 10px;
   font-size: 18px;
 }
+
 .btn {
   color: #337ab7;
 }
-.table {
+
+.tasks_index_page_selector {
   text-align: center;
-}
-.page_selector {
-  text-align: center;
-}
-.task_index {
-  border-bottom: 1px solid gray;
 }

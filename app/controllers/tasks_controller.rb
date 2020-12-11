@@ -3,20 +3,22 @@ class TasksController < ApplicationController
   PER = 8
 
   def index
-    #@tasks = Task.all
-    @tasks = Task.page(params[:page]).per(PER)
-      if params[:sort_expired] != nil
-        #@tasks = Task.page(params[:page]).per(PER)
-        @tasks = Task.order(expired_at: :asc).page(params[:page]).per(PER)
-      elsif params[:sort_priority] != nil
-        @tasks = Task.order(priority: :asc).page(params[:page]).per(PER)
-      elsif params[:title].present? && params[:status].present?
-        @tasks = Task.both_title_status(params[:title], params[:status]).page(params[:page]).per(PER)
-      elsif params[:title].present? && params[:status].blank?
-        @tasks = Task.only_title(params[:title]).page(params[:page]).per(PER)
-      elsif params[:title].blank? && params[:status].present?
-        @tasks = Task.only_status(params[:status]).page(params[:page]).per(PER)
-      end
+    if logged_in?
+      @tasks = current_user.tasks.page(params[:page]).per(PER)
+        if params[:sort_expired] != nil
+          @tasks = current_user.tasks.order(expired_at: :asc).page(params[:page]).per(PER)
+        elsif params[:sort_priority] != nil
+          @tasks = current_user.tasks.order(priority: :asc).page(params[:page]).per(PER)
+        elsif params[:title].present? && params[:status].present?
+          @tasks = current_user.tasks.both_title_status(params[:title], params[:status]).page(params[:page]).per(PER)
+        elsif params[:title].present? && params[:status].blank?
+          @tasks = current_user.tasks.only_title(params[:title]).page(params[:page]).per(PER)
+        elsif params[:title].blank? && params[:status].present?
+          @tasks = current_user.tasks.only_status(params[:status]).page(params[:page]).per(PER)
+        end
+    else
+      redirect_to new_session_path
+    end
   end
 
   def show
@@ -28,7 +30,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
 
     respond_to do |format|
       if @task.save
@@ -43,7 +45,6 @@ class TasksController < ApplicationController
 
   def edit
   end
-
 
   def update
     respond_to do |format|
