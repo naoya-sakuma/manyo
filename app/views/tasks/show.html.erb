@@ -27,5 +27,12 @@
   <%= @task.priority %>
 </p>
 
+<p>
+  <strong>登録ラベル</strong>
+  <% @task.labels.each do |label| %>
+    <%= label.name %>
+  <% end %>
+</p>
+
 <%= link_to t('view.edit'), edit_task_path(@task) %> |
 <%= link_to t('view.task_index'), tasks_path %>
