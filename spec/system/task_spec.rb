@@ -41,6 +41,7 @@ RSpec.describe 'タスク管理機能', type: :system do
       it '終了期限が最も近いタスクが一番上に表示される' do
         visit tasks_path
         click_on '終了期限'
+        sleep(0.5)
         task_list = all('.task_row')
         expect(task_list[0]).to have_content 'タイトル3'
       end
@@ -50,6 +51,7 @@ RSpec.describe 'タスク管理機能', type: :system do
         visit tasks_path
         click_on '優先度'
         task_list = all('.task_row')
+        sleep(0.5)
         expect(task_list[0]).to have_content 'タイトル1'
       end
     end
