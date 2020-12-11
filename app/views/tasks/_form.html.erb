@@ -37,6 +37,7 @@
   </div>
 
   <div class="field">
+    <%= task.label :label, 'ラベル' %>
     <%= task.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
   </div>
 

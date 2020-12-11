@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   def index
     if logged_in?
       @tasks = current_user.tasks.page(params[:page]).per(PER)
+      @tasks = @tasks.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
         if params[:sort_expired] != nil
           @tasks = current_user.tasks.order(expired_at: :asc).page(params[:page]).per(PER)
         elsif params[:sort_priority] != nil
