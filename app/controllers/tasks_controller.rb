@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   def index
     if logged_in?
       @tasks = current_user.tasks.page(params[:page]).per(PER)
+      @tasks = @tasks.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
         if params[:sort_expired] != nil
           @tasks = current_user.tasks.order(expired_at: :asc).page(params[:page]).per(PER)
         elsif params[:sort_priority] != nil
@@ -48,7 +49,7 @@ class TasksController < ApplicationController
 
   def update
     respond_to do |format|
-      if @task.update(update_task_params)
+      if @task.update(task_params)
         format.html { redirect_to @task, notice: t('notice.update') }
         format.json { render :show, status: :ok, location: @task }
       else
@@ -72,7 +73,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :content, :expired_at, :status, :priority)
+    params.require(:task).permit(:title, :content, :expired_at, :status, :priority, { label_ids: [] })
   end
 
   def update_task_params

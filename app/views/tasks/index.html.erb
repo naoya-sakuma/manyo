@@ -6,6 +6,8 @@
   <%= f.text_field :title %>
   <%= f.label :status, t('view.search_status') %>
   <%= f.select :status, [['指定なし', ''], ['未着手', '未着手'], ['着手中', '着手中'],['完了', '完了']], include_blanc: '選択してください' %>
+  <%= f.label :label, 'ラベル検索' %>
+  <%= f.select("label_id", Label.pluck(:name, :id), { include_blank: true }) %>
   <%= f.submit t('view.search_start'), class: "btn btn-default"%>
   <button type="button" class="btn btn-default"><%= link_to t('view.search_clear'), tasks_path %></button>
 <% end %>
